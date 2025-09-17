@@ -2,7 +2,7 @@
 
 USERID=$(id -u)
 
-VLIDATE(){
+VALIDATE(){
 
 }
 if [ $USERID -ne 0 ]
