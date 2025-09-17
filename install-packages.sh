@@ -2,7 +2,7 @@
 
 USERID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
-SCRIPT_NAME=$( echo $0 | cut -d "." -f1)
+SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOGFILE=/tmp/$SCRIPT_NAME-$TIMESTAMP.log
 R="e\[31m"
 G="e\[32m"
@@ -12,10 +12,10 @@ N="e\[0m"
 VALIDATE(){
     if [ $1 -ne 0 ]
     then 
-        echo "$2 is....FAILURE"
+        echo -e "$2 is....$R FAILURE $N"
         exit 1
     else
-        echo "$2 is....SUCCESS"
+        echo -e "$2 is....$G SUCCESS $N"
     fi
 }
 
@@ -26,6 +26,7 @@ then
 else 
     echo "you are super user"
 fi
+
 for i in $@
 do
    echo "Package to install: $i"
@@ -34,6 +35,7 @@ do
    then 
        echo -e "$i Already installed...$Y SKIPPING $N"
    else 
-       echo "$i not installed...Need to install" 
+       dnf install $i -y &>>$LOGFILE
+       VALIDATE $? "Installation of $i"
     fi
 done
