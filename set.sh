@@ -1,7 +1,11 @@
 #!/bin/bash
 
 set -e 
+failure(){
 
+    echo "error at line number $1: $2"
+}
+trap 'failure ${lineno} "$BASH_COMMAND"' ERR
 USERID=$(id -u)
 
 if [ $USERID -ne 0 ]
