@@ -7,7 +7,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-if[ -d $SOURCE_DIRECTORY ]
+if [ -d $SOURCE_DIRECTORY ]
 then
     echo -e "$G source directory exits $N"
 else
