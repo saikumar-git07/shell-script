@@ -1,8 +1,8 @@
 #!/bin/bash
 
 set -e 
-failure(){
 
+failure(){
     echo "error at line number $1: $2"
 }
 
