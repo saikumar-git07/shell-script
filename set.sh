@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e 
+
 USERID=$(id -u)
 
 if [ $USERID -ne 0 ]
@@ -10,7 +12,7 @@ else
      echo "you are a super user"
 fi
 
-dnf install mysqil -y
+dnf install mysql -y
 dnf install git -y
 
 echo "is script is proceeding ?"
