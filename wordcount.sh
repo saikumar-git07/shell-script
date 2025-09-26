@@ -10,4 +10,10 @@ fi
 file="$1"
 
 count word occurences, sort, ar
-cat"file" | tr -cs '[:alnum:]' '\n' | tr 'A-Z' | sort | uniq -c | sort -nr | head -5
+cat"file" |
+ tr -cs '[:alnum:]' '\n' | 
+tr 'A-Z' 'a-z' | 
+sort | 
+uniq -c | 
+sort -nr | 
+head -5
